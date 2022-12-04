@@ -1,0 +1,28 @@
+{
+    "name": "wead/sample-php-star-wars-api-sqlsrv",
+    "description": "Exemplo PHP de consumo da API Star Wars, gravando em SQL Server",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adriano Maciel",
+            "email": "adriano_mail@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable" : true,
+    "require": {
+        "php": "^8.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "SWApi": "src/"
+        },
+        "psr-4": {
+            "SWApi\\": "src/"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.2"
+    }
+}

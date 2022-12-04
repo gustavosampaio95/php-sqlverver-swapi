@@ -19,7 +19,7 @@ services:
     networks:
       - swapi
     volumes:
-      - ./src:/work
+      - ./swapi:/work
     depends_on:
       - sqlserver
       - mssqltools

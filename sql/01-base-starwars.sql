@@ -2,6 +2,16 @@
 CREATE TABLE [dbo].[sw_planet](
 	[id] [int] NOT NULL,
 	[name] [nvarchar](50) NOT NULL,
+	[diameter] [decimal](10, 2) NULL,
+	[rotation_period] [decimal](10, 2) NULL,
+	[orbital_period] [decimal](10, 2) NULL,
+	[gravity] [nvarchar](50) NOT NULL,
+	[population] [int] NULL,
+	[climate] [nvarchar](50) NULL,
+	[terrain] [nvarchar](50) NULL,
+	[surface_water] [nvarchar](50) NOT NULL,
+	[created] [datetime] NULL,
+	[edited] [datetime] NULL,
  CONSTRAINT [PK_sw_planet] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
