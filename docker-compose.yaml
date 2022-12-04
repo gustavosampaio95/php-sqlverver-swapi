@@ -1,0 +1,61 @@
+version: '3.4'
+services:
+  php-star-wars:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: star-wars
+    environment:
+      DB_HOST: sqlserver
+      DB_PORT: 1433
+      DB_BASE: master
+      DB_USER: sa
+      DB_PASS: "SqlServer2019!"
+    ports:
+      - target: 80
+        published: 8080
+        protocol: tcp
+        mode: host
+    networks:
+      - swapi
+    volumes:
+      - ./src:/work
+    depends_on:
+      - sqlserver
+      - mssqltools
+    links:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      MSSQL_SA_PASSWORD: "SqlServer2019!"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    networks:
+      - swapi
+
+  mssqltools:
+    image: mcr.microsoft.com/mssql-tools
+    environment:
+      DB_HOST: sqlserver
+      DB_PORT: 1433
+      DB_BASE: master
+      DB_USER: sa
+      DB_PASS: "SqlServer2019!"
+    networks:
+      - swapi
+    depends_on:
+      - sqlserver
+    volumes:
+      - ./sql/01-base-starwars.sql:/tmp/01-base-starwars.sql
+      - ./sql/init-database.sh:/tmp/init-database.sh
+    command: /bin/bash ./tmp/init-database.sh
+    links:
+      - sqlserver
+
+networks:
+  swapi:
+    driver: bridge
