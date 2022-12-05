@@ -58,10 +58,8 @@ echo PHP_EOL;
 dump("Salvando a pessoa pesquisada, caso ainda não exista");
 $peopleModel->saveIfNotExists($alguem);
 
-
 echo PHP_EOL;
 echo PHP_EOL;
-
 
 // listar todas as pessoas
 dump("Buscando todas as pessoas na API");
