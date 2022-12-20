@@ -20,6 +20,29 @@ CREATE TABLE [dbo].[sw_planet](
 GO
 
 
+CREATE TABKE [dbo].[sw_starship](
+	[name] [nvarchar](50) NOT NULL,
+	[model] [nvarchar](50) NOT NULL,
+	[manufacturer] [nvarchar](100) NOT NULL,
+	[cost_in_credits] [float] NOT NULL,
+	[length] [int] NOT NULL,
+	[max_atmosphering_speed] [float] NULL,
+	[crew] [int] NULL,
+	[passengers] [int] NULL,
+	[cargo_capacity] [float] NULL,
+	[consumables] [int] NULL,
+	[hyperdrive_rating] [float] NULL,
+	[MGLT] [int] NULL,
+	[starship_class] [nvarchar] (50) NOT NULL,
+	[pilots] [nvarchar] (50) NULL,
+	[films [nvarchar] (50)] NULL
+CONSTRAINT [PK_name] PRIMARY KEY CLUSTERED
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 
 
 CREATE TABLE [dbo].[sw_people](
